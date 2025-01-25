@@ -1,1 +1,26 @@
+nav{
+    background-color: darkviolet;
+    height: 15vh;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+nav a{
+    padding: 10px, 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.5s ease, color 0.5s ease;  
+}
+nav a:hover {
+    background-color: rgba(238, 197, 232, 0.651);  
+    border-radius: 4px;
+  }
+
+nav a.active-link {
+    background-color: rgba(238, 197, 232, 0.651); 
+    color: white;  
+    border-radius: 4px;
+  }

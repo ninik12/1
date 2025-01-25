@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 @Component({
   selector: 'app-root',
@@ -9,13 +9,19 @@ import { ProductService } from './product.service';
 export class AppComponent {
   title = 'my-app';
 
-  allProducts:[]=[];
+  products:any[]=[];
 
-  constructor(private product:ProductService){};
+  constructor(private productService:ProductService){};
 
-  ngOnInit(){
-    this.allProducts=this.product.getProducts()
+  ngOnInit():void{
+    this.products=this.productService.products
   }
+
+
+  onClick(){
+    
+  }
+
 
 
 

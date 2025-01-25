@@ -8,9 +8,13 @@ import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductsComponent } from './products/products.component';
 
 const appRoutes:Routes=[
-  {path:'',component:HeaderComponent},
+  {path:'',component:AppComponent},
+  {path:'products',component:ProductsComponent},
+  {path:'header',component:HeaderComponent},
   {path:'contact',component:ContactComponent},
   {path:'cart',component:CartComponent},
   {path:'productDetails/:id',component:ProductDetailsComponent}
@@ -22,7 +26,9 @@ const appRoutes:Routes=[
     HeaderComponent,
     CartComponent,
     ContactComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FooterComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
