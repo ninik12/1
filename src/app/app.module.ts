@@ -15,7 +15,6 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
-  // {path:'products',component:ProductsComponent},
   {path:'contact',component:ContactComponent},
   {path:'cart',component:CartComponent},
   {path:'product/:id',component:ProductDetailsComponent}

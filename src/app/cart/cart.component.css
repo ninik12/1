@@ -55,10 +55,14 @@
     opacity: 0.3;
   }
 
+  @media(max-width:800px){
+    .empty-cart{
+      font-size: 2rem;
+    }
+  }
 
-
-
-  button {
+  
+  .btnRemove {
     padding: 5px 10px;  
     font-size: 14px;  
     background-color: #3498db;  
@@ -69,8 +73,26 @@
     transition: background-color 0.3s ease; 
   }
   
-  button:hover {
+  .btnRemove:hover {
     background-color: #2980b9;  
+  }
+
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+  
+  .quantity-controls button {
+    padding: 2px 5px;
+    margin:  5px;
+    cursor: pointer;
+  }
+  
+  .quantity-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
 
 

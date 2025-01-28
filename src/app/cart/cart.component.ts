@@ -14,8 +14,6 @@ export class CartComponent {
 
   constructor(private productsService:ProductService){
     this.product = this.productsService.cart;
-    
-
   }
 
   get cartItems(){
@@ -32,15 +30,24 @@ export class CartComponent {
     this.productsService.clearCart()
   }
 
+
+ 
   get totalPrice(): number {
     return this.productsService.getTotalPrice();
   }
 
 
   
-
-  getQuantity(productId: number) : number {
+  getQuantity(productId: number) :number {
     return this.productsService.getQuantity(productId);
+  }
+
+  increaseQuantity(productId: number) {
+    this.productsService.increaseQuantity(productId);
+  }
+
+  decreaseQuantity(productId: number) {
+    this.productsService.decreaseQuantity(productId);
   }
 
 

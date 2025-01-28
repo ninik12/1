@@ -11,7 +11,7 @@ export class ProductService {
     {id:1, name:'Teddy',price:75, description: 'This soft and cuddly teddy bear is the perfect companion for comfort and playtime. Made with high-quality, plush fabric, it is gentle to the touch and perfect for hugging. Its friendly face, with stitched eyes and a warm smile, will quickly become a favorite among children and adults alike. Whether for bedtime snuggles or imaginative adventures, this adorable teddy bear is sure to bring joy and a sense of warmth to any room. A timeless gift that is ideal for all ages!', image:'https://media.istockphoto.com/id/909772478/photo/brown-teddy-bear-isolated-in-front-of-a-white-background.jpg?s=612x612&w=0&k=20&c=F4252bOrMfRTB8kWm2oM2jlb9JXY08tKCaO5G_ms1Uw='},
     {id:2, name:'Doll toy set',price:95, description: 'This charming doll with a milk bottle is the perfect addition to any little ones collection. Featuring a sweet, soft face and a lifelike design, the doll comes with its very own milk bottle, ready for pretend feeding and nurturing play. Crafted from soft, durable materials, this doll is gentle enough for cuddling but sturdy enough for endless hours of imaginative fun. Whether it is feeding time or nap time, this doll is ready for all the care and love your child can give. A wonderful toy for teaching nurturing skills and sparking creativity!', image:'https://images-cdn.ubuy.co.in/6533589a75dc304def13bb5c-my-sweet-love-sweet-baby-doll-toy-set-4.jpg'},
     {id:3, name:'Barbie',price:85, description: 'This iconic Barbie doll is a timeless figure of style, imagination, and adventure. With her stunningly detailed outfit and flawless features, she embodies confidence, elegance, and endless possibilities. Barbie inspires creativity and storytelling. Perfect for collectors and young dreamers alike, Barbie encourages everyone to imagine a world where anything is possible. With a wide range of accessories and outfits to choose from, she can take on any role and inspire endless adventures!', image:'https://i5.walmartimages.com/seo/Barbie-The-Movie-Collectible-Doll-Margot-Robbie-as-Barbie-in-Pink-Gingham-Dress-Toy-for-3-Years-and-Up_43517acc-792c-4db0-8e03-54e40d42802e.a3ac52b916f2f81089fc345e6218a73d.jpeg'},
-    {id:4, name:'Barbie family',price:135, description: 'The Barbie Family brings together a world of love, adventure, and togetherness! This diverse collection includes Barbie, her siblings, friends, and even her beloved pets, each with unique personalities and styles. From Barbies little sister Skipper to her friends Ken and Chelsea, the Barbie Family offers endless storytelling possibilities. Each family member is beautifully crafted with attention to detail, from their fashionable outfits to their fun accessories. Whether they are embarking on family adventures, celebrating special moments, or simply hanging out together, the Barbie Family is all about building bonds and embracing the joy of being together. Perfect for sparking imagination and creating a world where every family member has a special role!', image:'https://target.scene7.com/is/image/Target/GUEST_0d11f2a6-bf1b-4a88-838f-877d3a7d26e3'},
+    {id:4, name:'Barbie family',price:135, description: 'The Barbie Family brings together a world of love, adventure, and togetherness! This diverse collection includes Barbie, her siblings, friends, and even her beloved pets, each with unique personalities and styles. The Barbie Family offers endless storytelling possibilities. Each family member is beautifully crafted with attention to detail, from their fashionable outfits to their fun accessories. Perfect for sparking imagination and creating a world where every family member has a special role!', image:'https://target.scene7.com/is/image/Target/GUEST_0d11f2a6-bf1b-4a88-838f-877d3a7d26e3'},
     {id:5, name:'Puppy toy set',price:95, description: 'This adorable puppy is ready for endless play and cuddles! With soft fur, bright eyes, and a playful personality, it is the perfect companion for kids and animal lovers. Whether it is nap time or playtime, this sweet puppy brings joy and comfort wherever it goes!', image:'https://m.media-amazon.com/images/I/71SSw8RWGDL.jpg'},
     {id:6, name:'Kitchen toy set',price:195, description: 'This fun kitchen toy set has everything little chefs need to cook up their imagination! With pots, pans, utensils, and colorful food pieces, it is perfect for pretend play and sparking creativity in the kitchen. Let the cooking adventures begin!', image:'https://mentari.toys/cdn/shop/products/kids-kitchen-mt7521-753513.jpg?v=1702456094'},
     {id:7, name:'Vegetable and fruit toy set',price:65, description: 'This vibrant vegetable and fruit toy set is perfect for little hands to explore healthy eating! With colorful, realistic pieces, it encourages imaginative play and helps teach kids about different fruits and veggies in a fun, interactive way.', image:'https://ae01.alicdn.com/kf/S350dd43864c14fc19271cc12abc3f87ek.jpg'},
@@ -32,16 +32,14 @@ export class ProductService {
   }
 
 
-  addToCart(product:any){
-    this.cart.push(product);
-    const existingProductIndex =this.cart.findIndex(item => item.id === product.id);
-    if (existingProductIndex !== -1){
+  addToCart(product: any) {
+    const existingProductIndex = this.cart.findIndex(item => item.id === product.id);
+    if (existingProductIndex !== -1) {
       this.cart[existingProductIndex].quantity++;
     } else {
-      this.cart.push({ ...product, quantuty: 1 });
+      this.cart.push({ ...product, quantity: 1 });  
     }
   }
-
 
 
   removeFromCart(productId:number){
@@ -65,8 +63,23 @@ export class ProductService {
     return this.cart.reduce((total, item) =>total + (item.price * item.quantity), 0);
 
   }
-  
 
+  increaseQuantity(productId: number) {
+    const product = this.cart.find(item => item.id === productId);
+    if (product) {
+      product.quantity++;
+    }
+  }
+
+  decreaseQuantity(productId: number) {
+    const product = this.cart.find(item => item.id === productId);
+    if (product && product.quantity > 1) {
+      product.quantity--;
+    } else {
+      this.removeFromCart(productId);
+    }
+  }
+  
 
 
 
