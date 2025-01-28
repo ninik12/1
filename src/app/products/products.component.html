@@ -1,4 +1,18 @@
-<p>products works!</p>
 
+<div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" (input)="onSearch()" class="search-input" placeholder="Search..." />
+    <button class="search-button">Search</button>
+  </div>
 
+  <div class="product-list">
+    <div *ngFor="let product of filteredProducts" class="product">
+      <div (click)="viewProductDetail(product.id)" style="cursor: pointer;" >
+         <img [src]="product.image" alt="{{product.name}}" width="150"/>
+         <h3>{{ product.name }}</h3>
+         <p>Price: ${{ product.price }}</p>
+        <span *ngIf="getQuantity(product.id) > 0">In Cart: {{ getQuantity(product.id) }}</span> 
+      </div>
+      <button class="btn-addToCart" (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </div>
 

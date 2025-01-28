@@ -9,13 +9,9 @@ import { ProductService } from './product.service';
 export class AppComponent {
   title = 'my-app';
 
-  products:any[]=[];
+ 
 
-  constructor(private productService:ProductService){};
-
-  ngOnInit():void{
-    this.products=this.productService.products
-  }
+  
 
 
   onClick(){

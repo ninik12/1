@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule,Routes } from '@angular/router';
@@ -10,14 +11,14 @@ import { ContactComponent } from './contact/contact.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes:Routes=[
-  {path:'',component:AppComponent},
-  {path:'products',component:ProductsComponent},
-  {path:'header',component:HeaderComponent},
+  {path:'',component:HomeComponent},
+  // {path:'products',component:ProductsComponent},
   {path:'contact',component:ContactComponent},
   {path:'cart',component:CartComponent},
-  {path:'productDetails/:id',component:ProductDetailsComponent}
+  {path:'product/:id',component:ProductDetailsComponent}
 ]
 
 @NgModule({
@@ -28,11 +29,13 @@ const appRoutes:Routes=[
     ContactComponent,
     ProductDetailsComponent,
     FooterComponent,
-    ProductsComponent
+    ProductsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

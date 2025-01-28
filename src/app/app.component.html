@@ -1,28 +1,23 @@
 
+
 <app-header></app-header>
 
 
 
-<div class="search-container">
-  <input type="text" class="search-input" placeholder="Search..." />
-  <button class="search-button">Search</button>
+<div class="content">
+
+
+    <router-outlet></router-outlet>
+
+
+    
 </div>
 
 
 
 
 
-<div class="product-list">
-  <div *ngFor="let product of products" class="product">
-    <h2>{{product.name}}</h2>
-    <img [src]="product.image" alt="{{product.name}}" width="150" />
-    <p>price: ${{product.price}} </p>
-    <button>add to cart</button>
-  </div>
-</div>
 
 
-
-<router-outlet></router-outlet>
 
 <app-footer></app-footer>

@@ -1,0 +1,32 @@
+.product-detail{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30%;
+}
+
+.description{
+    
+    font-size: 18px;
+    border: 2px double rgb(212, 210, 210);
+    border-radius: 20px;
+    width: 70%;
+    margin-left: 15%;
+    background-color:rgb(216, 235, 247);
+}
+
+.btn-addToCart{
+    padding: 10px 20px;  
+    font-size: 16px;  
+    background-color: #3498db;  
+    color: white; 
+    border: none;  
+    border-radius: 25px;  
+    cursor: pointer;  
+    transition: background-color 0.3s ease; 
+    margin-bottom: 2%;
+  }
+  
+  .btn-addToCart:hover {
+    background-color: #2980b9;  
+  }
